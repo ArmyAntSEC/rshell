@@ -1650,7 +1650,7 @@ class Device(object):
 
     def sync_time(self):
         """Sets the time on the pyboard to match the time on the host."""
-        now = time.localtime(time.time())
+        now = time.gmtime(time.time())
         self.remote(set_time, (now.tm_year, now.tm_mon, now.tm_mday, now.tm_wday + 1,
                                now.tm_hour, now.tm_min, now.tm_sec, 0))
         return now
